@@ -18,11 +18,11 @@ package fr.hadaly.recyclerviewplayground.common.logger
 import android.app.Activity
 import android.content.Context
 import android.util.*
-import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 
 /** Simple TextView which is used to output log data received through the LogNode interface.
  */
-class LogView : TextView, LogNode {
+class LogView : AppCompatTextView, LogNode {
 
     // The next LogNode in the chain.
     private var next: LogNode? = null
@@ -67,10 +67,10 @@ class LogView : TextView, LogNode {
 
         // In case this was originally called from an AsyncTask or some other off-UI thread,
         // make sure the update occurs within the UI thread.
-        (context as Activity).runOnUiThread( {
+        (context as Activity).runOnUiThread {
             // Display the text we just generated within the LogView.
             appendToLog(outputBuilder.toString())
-        })
+        }
 
 
         next?.println(priority, tag, msg, tr)
