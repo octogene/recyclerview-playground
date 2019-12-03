@@ -5,7 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+	maven("http://dl.bintray.com/kotlin/kotlin-eap")        
     }
     dependencies {
         classpath(BuildPlugins.Dependencies.androidSupport)
@@ -20,6 +20,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+	maven("http://dl.bintray.com/kotlin/kotlin-eap")
         
     }
 }
